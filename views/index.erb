@@ -1,9 +1,10 @@
 <html>
 <head>
 	<title>Sudoku Game </title>
-	<link href="/stylesheets/applilcation.css" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
 </head>
 	<body>
+		<h1>Life is too short to play Sudoku</h1>
 		<div id="sudoku">
 			<!--one div for each row -->
 			<% 3.times do |row| %>
@@ -17,7 +18,9 @@
 							<% 3.times do |cell| %>	
 								<div class ="cell">	
 									<!-- every cell will have an input field -->
-									<input type ="text">
+									<% cell_index = row * 27 + box * 3 + cell_row * 9 + cell %>
+									<% cell_value = @current_solution[cell_index] %>
+									<input type="text" maxlength="1" autocomplete="off" value=<%= cell_value %> >
 								</div>
 			                <% end %>
 			              </div>

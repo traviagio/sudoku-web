@@ -18,3 +18,13 @@ body
 	text-align: center;
 	font-family: Arial;
 }
+
+.incorrect
+{
+	background-color: red;
+}
+
+.value-provided
+{
+	background-color: #DDD;
+}

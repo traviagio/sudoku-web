@@ -5,6 +5,10 @@ require_relative './lib/sudoku'
 require_relative './lib/cell'
 require_relative './helpers/application'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 use Rack::Flash
 
 set :partial_template_engine, :erb

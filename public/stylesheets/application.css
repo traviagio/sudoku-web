@@ -3,8 +3,8 @@ div.box, div.cell {
 }
 
 .cell input {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
 }
 
 #sudoku
@@ -32,4 +32,16 @@ body
 #flash
 {
 	margin:20px;
+}
+
+#rules
+{
+	font-family: Helvetica;
+	text-align: center;
+}
+
+h1
+{
+	font-family: Courier;
+	color: blue;
 }

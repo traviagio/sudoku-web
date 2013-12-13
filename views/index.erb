@@ -13,7 +13,10 @@
     <button type="submit">See Solution</button>
 </form>
         </div> 
-
+        
+        <div id="rules">
+        	Game Rules
+        </div>
 		<div id="sudoku">
 			<form action="/" method "post">
 			<% 3.times do |row| %>
@@ -27,8 +30,6 @@
 							<% 3.times do |cell| %>	
 								<div class ="cell">	
 									  <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
-									
-
 								</div>
 			                <% end %>
 			              </div>

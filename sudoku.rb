@@ -1,8 +1,14 @@
 require 'sinatra'
+require 'sinatra/partial'
+require 'rack-flash'
 require_relative './lib/sudoku'
 require_relative './lib/cell'
 require_relative './helpers/application'
 
+use Rack::Flash
+
+set :partial_template_engine, :erb
+set :session_secret, "I'm the secret key to sign the cookie"
 enable :sessions
 
 def random_sudoku
@@ -30,6 +36,9 @@ end
 
 def prepare_to_check_solution
   @check_solution = session[:check_solution]
+  if @check_solution
+    flash[:notice] = "Incorrect values are highlighted in red"
+  end
   session[:check_solution] = nil
 end
 #should be refractored
@@ -69,3 +78,9 @@ get '/solution' do
 	erb :index
 end
 
+post '/' do
+  cells = box_order_to_row_order(params["cell"])
+  session[:current_solution] = cells.map{|value| value.to_i }.join
+  session[:check_solution] = true
+  redirect to("/")
+end

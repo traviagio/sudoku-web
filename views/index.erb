@@ -5,8 +5,17 @@
 </head>
 	<body>
 		<h1>Life is too short to play Sudoku</h1>
+		<div id="flash">
+			<%= flash[:notice] %>
+		</div>
+		<div id ="show-solution-button">
+		<form method="get" action="/solution">
+    <button type="submit">See Solution</button>
+</form>
+        </div> 
+
 		<div id="sudoku">
-			<!--one div for each row -->
+			<form action="/" method "post">
 			<% 3.times do |row| %>
 			<div class="row">
 				        <!-- we want to create separate div elements for boxes to style them using CSS -->
@@ -28,9 +37,7 @@
 			        <% end %>
 			      </div>
 			    <% end %>
-			  </div>
-<div id="sudoku">
-	<form action="/" method "post">
+			  </div>	
 		<button>Check Solution</button>
 	</body>
 
